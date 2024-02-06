@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { Modal } from "./Modal";
 import { MoviesShow } from "./MoviesShow";
+import { FavoritesIndex } from "./FavoritesIndex";
 
 export function Content() {
   //placeholder data
@@ -48,6 +49,7 @@ export function Content() {
       <Signup/>
       <Login/>
       <Logout/>
+      <FavoritesIndex/>
       <MoviesIndex movies = {movies} onShowMovie = {handleShowMovie}/>
       <Modal show ={isMoviesShowVisible} onClose = {handleClose}>
        <MoviesShow movie={currentMovie}/>
