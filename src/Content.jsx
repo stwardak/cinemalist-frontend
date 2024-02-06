@@ -5,6 +5,7 @@ import { MoviesIndex } from "./MoviesIndex";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Modal } from "./Modal";
+import { MoviesShow } from "./MoviesShow";
 
 export function Content() {
   //placeholder data
@@ -13,13 +14,30 @@ export function Content() {
   //   {id: 2, title:"A Clockwork Orangee", description: "In the future, a sadistic gang leader is imprisoned and volunteers for a conduct-aversion experiment, but it doesn't go as planned.", rating: "R", year: 1971, image_url: "https://www.movieposters.com/cdn/shop/products/A70-10327_480x.progressive.jpg?v=1576163376", director_id: 10},
   // ]
 
+// defining constants
   const [movies, setMovies] = useState([]);
+  const [isMoviesShowVisible, setIsMoviesShowVisible] = useState(false);
+  const [currentMovie, setCurrentMovie] = useState([]);
+
+
+
   const handleIndexMovies = () => {
     console.log("handleIndexMovies");
     axios.get("http://localhost:3000/movies.json").then((response) => {
       console.log(response.data);
       setMovies(response.data);
     });
+  };
+
+  const handleShowMovie = (movie) => {
+    console.log("handleShowMovie", movie);
+    setIsMoviesShowVisible(true);
+    setCurrentMovie(movie);
+  };
+
+  const handleClose = () => {
+    console.log("handleClose");
+    setIsMoviesShowVisible(false);
   };
 
   useEffect(handleIndexMovies, []);
@@ -30,9 +48,9 @@ export function Content() {
       <Signup/>
       <Login/>
       <Logout/>
-      <MoviesIndex movies = {movies}/>
-      <Modal show ={true}>
-        <h1>test</h1>
+      <MoviesIndex movies = {movies} onShowMovie = {handleShowMovie}/>
+      <Modal show ={isMoviesShowVisible} onClose = {handleClose}>
+       <MoviesShow movie={currentMovie}/>
       </Modal>
     </main>
   )
