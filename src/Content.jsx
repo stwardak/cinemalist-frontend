@@ -7,6 +7,7 @@ import axios from "axios";
 import { Modal } from "./Modal";
 import { MoviesShow } from "./MoviesShow";
 import { FavoritesIndex } from "./FavoritesIndex";
+import { Routes, Route } from "react-router-dom";
 
 export function Content() {
   //placeholder data
@@ -44,16 +45,35 @@ export function Content() {
   useEffect(handleIndexMovies, []);
 
   return (
-    <main>
+    <div className = "container">
       <h1>The Cinemalist.</h1>
-      <Signup/>
-      <Login/>
-      <Logout/>
-      <FavoritesIndex/>
-      <MoviesIndex movies = {movies} onShowMovie = {handleShowMovie}/>
+      <Routes>
+        <Route path = "/signup" element= {<Signup/>}/>
+        <Route path = "/login" element= {<Login/>}/>
+        <Route path = "/logout" element= {<Logout/>}/>
+        <Route path = "/" element= {<MoviesIndex movies = {movies} onShowMovie = {handleShowMovie}/>}/>
+        <Route path = "/favorites" element= {<FavoritesIndex/>}/>
+      </Routes>
+
       <Modal show ={isMoviesShowVisible} onClose = {handleClose}>
        <MoviesShow movie={currentMovie}/>
       </Modal>
-    </main>
+
+    </div>
   )
+
+  // return (
+  //   <main>
+  //     <h1>The Cinemalist.</h1>
+  //     <Signup/>
+  //     <Login/>
+  //     <Logout/>
+  //     <FavoritesIndex/>
+  //     <MoviesIndex movies = {movies} onShowMovie = {handleShowMovie}/>
+  //     <Modal show ={isMoviesShowVisible} onClose = {handleClose}>
+  //      <MoviesShow movie={currentMovie}/>
+  //     </Modal>
+  //   </main>
+  // )
+  
 }
