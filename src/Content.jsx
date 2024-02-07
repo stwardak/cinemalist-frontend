@@ -8,6 +8,7 @@ import { Modal } from "./Modal";
 import { MoviesShow } from "./MoviesShow";
 import { FavoritesIndex } from "./FavoritesIndex";
 import { Routes, Route } from "react-router-dom";
+import  About  from "./About";
 
 export function Content() {
   //placeholder data
@@ -46,13 +47,13 @@ export function Content() {
 
   return (
     <div className = "container">
-      <h1>The Cinemalist.</h1>
       <Routes>
         <Route path = "/signup" element= {<Signup/>}/>
         <Route path = "/login" element= {<Login/>}/>
         <Route path = "/logout" element= {<Logout/>}/>
         <Route path = "/" element= {<MoviesIndex movies = {movies} onShowMovie = {handleShowMovie}/>}/>
         <Route path = "/favorites" element= {<FavoritesIndex/>}/>
+        <Route path = "/about" element= {<About/>}/>
       </Routes>
 
       <Modal show ={isMoviesShowVisible} onClose = {handleClose}>
