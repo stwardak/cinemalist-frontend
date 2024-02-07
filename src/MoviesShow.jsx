@@ -68,7 +68,7 @@ export function MoviesShow(props) {
     {/* add to faves */}
       {/* <button onClick={addToFavorites}>
       </button> */}
-      <button onClick={handleFavorite}>
+      <button className="bg-yellow p-2 " onClick={handleFavorite}>
         {isFavorited ? "★ Remove from Favorites" : "☆ Add to Favorites"} 
       </button>
     </div>
