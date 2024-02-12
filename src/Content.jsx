@@ -9,6 +9,7 @@ import { FavoritesIndex } from "./FavoritesIndex";
 import { Routes, Route } from "react-router-dom";
 import About from "./About";
 import { SeenItIndex } from "./SeenItIndex";
+import {ProfileShow} from "./ProfileShow";
 
 export function Content() {
   const [movies, setMovies] = useState([]);
@@ -30,6 +31,7 @@ export function Content() {
         <Route path="/login" element={<Login />} />
         <Route path="/logout" element={<Logout />} />
         <Route path="/" element={<MoviesIndex movies={movies} />} />
+        <Route path="/profiles/:user_username" element={<ProfileShow/>} />
         <Route path="/movies/:id" element={<MoviesShow />} /> 
         <Route path="/users/:user_id/favorites" element={<FavoritesIndex />} />
         <Route path="/users/:user_id/seen-it" element={<SeenItIndex />} />
