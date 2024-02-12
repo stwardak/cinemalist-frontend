@@ -12,9 +12,15 @@ export default {
       xl: '1440px',
     },
     colors: {
-      'yellow': '#dbb100',
+      'yellow': '#faab4d',
       'black': '#000000',
-      'white': '#ffffff'
+      'white': '#ffffff',
+      'pink': '#f16d8b',
+      'orange': '#f26525',
+      'turquoise': '#2bbbad',
+      'cream': '#f9e0b4',
+      'red': '#ef3b2d',
+      'blue': '#223f80',
       
     },
     fontFamily: {

@@ -14,11 +14,11 @@ export function Header() {
         <a href="/" className="">Browse</a>
         <input type="text" placeholder="Search" className="border p-1" />
         <div className="flex items-center">
-            <a href="/seen-it" className="flex items-center mr-6">
+            <a href="/favorites" className="flex items-center mr-6">
               <img src="/src/assets/watch_list.svg" className="w-3 h-3 mr-2" alt="Favorites" />
              <span>Favorites</span>
             </a>
-            <a href="/seen-it" className="flex items-center mr-6">
+            <a href="/watchlist" className="flex items-center mr-6">
               <img src="/src/assets/watch_list.svg" className="w-3 h-3 mr-2" alt="Watchlist" />
              <span>Watchlist</span>
             </a>
