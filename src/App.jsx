@@ -6,13 +6,15 @@ import "./index.css"
 
 function App() {
   return (
+    <div className= "bg-black text ">
     <BrowserRouter>
-        <div>
+        <div >
       <Header />
       <Content />
       <Footer />
     </div>
     </BrowserRouter>
+    </div>
   )
 }
 

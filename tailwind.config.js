@@ -21,11 +21,16 @@ export default {
       'cream': '#f9e0b4',
       'red': '#ef3b2d',
       'blue': '#223f80',
+      'grey': '#575757',
+      'grey-500': '#231f20',
+      'grey-300': '#747474',
+      'grey-200': '#acacac',
+      'grey-100': '#c1c1c1'
       
     },
     fontFamily: {
       sans: ['Helvetica', 'sans-serif'],
-      serif: ['Garamond', 'serif']
+      serif: ['Bodoni', 'serif'],
     },
     fontWeight: {
       'thin': 100,

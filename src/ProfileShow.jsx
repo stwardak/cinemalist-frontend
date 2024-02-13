@@ -35,7 +35,7 @@ export function ProfileShow() {
 
       <div>
         {/* placeholders for followers (will link to followers show and following show) */}
-        <button className="bg-yellow p-2 m-2">123 Followers</button> | <button className="bg-yellow p-2 m-2">344 Following</button>
+        <button className="bg-yellow p-2 m-2">123 Followers</button> | <button className="bg-yellow p-2 m-2">344 Following</button> | <button className="bg-yellow p-2 m-2"> Follow</button>
       </div>
 
       <div>
@@ -50,7 +50,7 @@ export function ProfileShow() {
           )
           )}
       </div>
-      <div className="border-b-2 border-black"></div>
+      <div className="border-b-2 border-white"></div>
 
       {/* reviews */}
       <div>
@@ -74,12 +74,6 @@ export function ProfileShow() {
           }
 
         </div>
-
-
-      <p>{profile.user_username}</p>
-      <p>{profile.user_username}</p>
-      <p>{profile.user_username}</p>
-
     </div>
   );
 }
