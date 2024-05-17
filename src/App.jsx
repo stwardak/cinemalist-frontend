@@ -6,7 +6,7 @@ import "./index.css"
 
 function App() {
   return (
-    <div className= "bg-black text ">
+    <div className= "bg-black">
     <BrowserRouter>
         <div >
       <Header />

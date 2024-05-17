@@ -7,6 +7,7 @@ export function FavoritesIndex() {
   const [favorites, setFavorites] = useState ([]);
   const userId = localStorage.getItem("userId");
   const navigate = useNavigate();
+  
 
   const getFavorites = () => {
     console.log("getFavorites");
