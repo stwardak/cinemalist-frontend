@@ -42,20 +42,20 @@ export function ProfileShow() {
 
           {/* Profile stats section */}
           <div className="col-span-4 flex justify-center items-center text-white space-x-8 py-4">
-            <div className="flex flex-col items-center justify-center border-r border-grey-300 pr-8">
-              <span className="text-xl font-semibold font-serif">2,834</span>
+          <div className="flex flex-col items-center justify-center border-r border-grey-300 pr-8">
+              <span className="text-xl font-semibold font-serif">{profile.movies_count}</span> 
               <span className="text-sm text-grey-300 uppercase">Movies</span>
             </div>
             <div className="flex flex-col items-center justify-center border-r border-grey-300 pr-8">
-              <span className="text-xl font-semibold font-serif">25</span>
+              <span className="text-xl font-semibold font-serif">{profile.this_year_count}</span>
               <span className="text-sm text-grey-300 uppercase">This Year</span>
             </div>
             <div className="flex flex-col items-center justify-center border-r border-grey-300 pr-8">
-              <span className="text-xl font-semibold font-serif">26</span>
+              <span className="text-xl font-semibold font-serif">{profile.following_count}</span>
               <span className="text-sm text-grey-300 uppercase">Following</span>
             </div>
             <div className="flex flex-col items-center justify-center">
-              <span className="text-xl font-semibold font-serif">15</span>
+              <span className="text-xl font-semibold font-serif">{profile.followers_count}</span>
               <span className="text-sm text-grey-300 uppercase">Followers</span>
             </div>
           </div>
