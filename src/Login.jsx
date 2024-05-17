@@ -16,24 +16,29 @@ export function Login() {
     axios
       .post("http://localhost:3000/sessions.json", params)
       .then((response) => {
-        console.log(response.data);
-        axios.defaults.headers.common["Authorization"] = "Bearer " + response.data.jwt;
-        localStorage.setItem("jwt", response.data.jwt);
-        localStorage.setItem("userId", response.data.userId); 
-        localStorage.setItem("user_username", response.data.username);
-
-        event.target.reset();
-        window.location.href = "/"; // Change this to hide a modal, redirect to a specific page, etc.
+        console.log("Login response:", response.data);
+        const { jwt, user_id, username } = response.data;  // Destructure response
+        if (jwt && user_id && username) {  // Ensure all values are present
+          axios.defaults.headers.common["Authorization"] = "Bearer " + jwt;
+          localStorage.setItem("jwt", jwt);
+          localStorage.setItem("userId", user_id);  // Use user_id to match backend response
+          localStorage.setItem("user_username", username);
+          
+          event.target.reset();
+          window.location.href = "/";  // Redirect or hide modal
+        } else {
+          setErrors(["Invalid response from server"]);
+        }
       })
       .catch((error) => {
-        console.log(error.response);
+        console.log("Login error:", error.response);
         setErrors(["Invalid email or password"]);
       });
   };
 
   return (
     <div id="login" className="min-h-screen flex flex-col justify-center items-center bg-black">
-      <h1 className="text-4xl font-bold mb-6">Login</h1>
+      <h1 className="text-4xl font-bold mb-6 text-white">Login</h1>
       
       {errors.length > 0 && (
         <ul className="mb-6">
@@ -55,6 +60,5 @@ export function Login() {
         <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full">Login</button>
       </form>
     </div>
-
   );
 }

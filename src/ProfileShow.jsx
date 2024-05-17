@@ -63,19 +63,19 @@ export function ProfileShow() {
 
         {/* lists section */}
         <div className="flex justify-center space-x-4 mt-4">
-          <a href={`/users/${userId}/favorites`} className="text-grey-300 hover:text-white">
+          <a href={`/users/${profile.id}/favorites`} className="text-grey-300 hover:text-white">
             <img src="/src/assets/faved.svg" className="w-12 h-12 mx-auto" alt="Favorites" />
             <span className="block text-center">{profile.favorites_count} Favorites</span>
           </a>
-          <a href={`/users/${userId}/seen-it`} className="text-grey-300 hover:text-white">
+          <a href={`/users/${profile.id}/seen-it`} className="text-grey-300 hover:text-white">
             <img src="/src/assets/watched.svg" className="w-12 h-12 mx-auto" alt="Seen it" />
             <span className="block text-center">{profile.watched_movies_count} Watched</span>
           </a>
-          <a href={`/users/${userId}/watchlist`} className="text-grey-300 hover:text-white">
+          <a href={`/users/${profile.id}/watchlist`} className="text-grey-300 hover:text-white">
             <img src="/src/assets/saved.svg" className="w-12 h-12 mx-auto" alt="Watchlist" />
             <span className="block text-center">{profile.saved_movies_count} Watchlist</span>
           </a>
-          <a href={`/users/${userId}/reviews`} className="text-grey-300 hover:text-white">
+          <a href={`/users/${profile.id}/reviews`} className="text-grey-300 hover:text-white">
             <img src="/src/assets/reviewed.svg" className="w-12 h-12 mx-auto" alt="My Reviews" />
             <span className="block text-center">{profile.reviews_count} Reviews</span>
           </a>
