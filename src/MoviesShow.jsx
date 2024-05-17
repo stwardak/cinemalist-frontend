@@ -257,10 +257,10 @@ export function MoviesShow() {
           <div key={review.id} className="grid grid-cols-4 pt-8 mt-4 border-b-2 pb-8 mb-4 border-t-2  border-grey-500 ">
             <div className="col-span-1">
 
-              <a href={`/profiles/${review.user}`}>
+              <a href={`/${review.user}`}>
                 <img src={`http://localhost:3000/avatars/${review.avatar}`} alt="Avatar" className="rounded-full w-16 h-16"/>
               </a>
-              <p className="text-sm pt-2">review by <br/><a href={`/profiles/${review.user}`} className="text-white font-bold"> {review.user}</a></p>
+              <p className="text-sm pt-2">review by <br/><a href={`/${review.user}`} className="text-white font-bold"> {review.user}</a></p>
             </div>
             
 

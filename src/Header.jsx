@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
+import { Logout } from './Logout';
 
 export function Header() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -55,7 +56,7 @@ export function Header() {
             <div className={`absolute right-0 mt-2 w-48 bg-black border-b-1 border-grey ${isDropdownOpen ? '' : 'hidden'}`}>
               <a href="/login" className="block px-4 py-2 text-grey-200 hover:bg-grey-500 border-b-2 border-grey-200">Login</a>
               <a href="/signup" className="block px-4 py-2 text-grey-200 hover:bg-grey-500 border-b-2 border-grey-200">Sign Up</a>
-              <a href="/logout" className="block px-4 py-2 text-grey-200 hover:bg-grey-500 border-b-2 border-grey-200">Logout</a>
+              <div className="block px-4 py-2 text-grey-200 hover:bg-grey-500 border-b-2 border-grey-200"><Logout /></div>
               <a href={`/${userUsername}`} className="block px-4 py-2 text-grey-200 hover:bg-grey-500 border-b-2 border-grey-200">My Profile</a>
               <a href="/settings" className="block px-4 py-2 text-grey-200 hover:bg-grey-500">Settings</a>
             </div>
