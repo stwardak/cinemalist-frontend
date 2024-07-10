@@ -18,9 +18,9 @@ export function Header() {
     setUserUsername(storedUserUsername);
   }, []);
 
-  if (!userId || !userUsername) {
-    return <div>Loading...</div>;
-  }
+  // if (!userId || !userUsername) {
+  //   return <div>Loading...</div>;
+  // }
 
   return (
     <header className="p-8 bg-black text-grey-200 border-b-2 border-grey">
