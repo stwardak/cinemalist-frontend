@@ -79,20 +79,20 @@ export function Signup() {
           <input id="password_confirmation" name="password_confirmation" type="password" className="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline" />
         </div>
         <div className="mb-6">
-          <label className="block text-white text-sm font-bold mb-2">Select Avatar</label>
-          <div className="flex space-x-4">
+          <label className="block text-white text-sm font-bold mb-2">Select Your Avatar:</label>
+          <div className="flex space-x-4 justify-center">
             {avatars.map((avatar) => (
               <img 
                 key={avatar}
                 src={`http://localhost:3000/assets/avatars/${avatar}`}
                 alt={`Avatar ${avatar}`}
-                className={`w-16 h-16 rounded-full cursor-pointer ${selectedAvatar === avatar ? 'border-4 border-blue-500' : ''}`}
+                className={`w-16 h-16 rounded-full cursor-pointer ${selectedAvatar === avatar ? 'w-20 h-20 hover:opacity-75' : 'opacity-50 hover:opacity-100'}`}
                 onClick={() => setSelectedAvatar(avatar)}
               />
             ))}
           </div>
         </div>
-        <button type="submit" className= "text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full">Signup</button>
+        <button type="submit" className= "align-middle text-lg font-bold border-2 border-white border-b-grey-300 border-r-grey-300 ml-2 px-2 text-white rounded hover:translate-x-0.5 hover:translate-y-0.5 hover:border-grey-100 hover:border-b-grey-300 hover:border-r-grey-300 hover:bg-grey-500">Signup</button>
       </form>
     </div>
   );
