@@ -17,12 +17,13 @@ export function Login() {
       .post("http://localhost:3000/sessions.json", params)
       .then((response) => {
         console.log("Login response:", response.data);
-        const { jwt, user_id, username } = response.data;  // Destructure response
-        if (jwt && user_id && username) {  // Ensure all values are present
+        const { jwt, user_id, username, avatar } = response.data;  // Destructure response
+        if (jwt && user_id && username && avatar) {  // Ensure all values are present
           axios.defaults.headers.common["Authorization"] = "Bearer " + jwt;
           localStorage.setItem("jwt", jwt);
           localStorage.setItem("userId", user_id);  // Use user_id to match backend response
           localStorage.setItem("user_username", username);
+          localStorage.setItem("user_avatar", avatar);
           
           event.target.reset();
           window.location.href = "/";  // Redirect or hide modal

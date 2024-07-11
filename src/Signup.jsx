@@ -29,11 +29,19 @@ export function Signup() {
       .post("http://localhost:3000/users.json", params)
       .then((response) => {
         console.log(response.data);
-        localStorage.setItem("username", response.data.username);
-        localStorage.setItem("userId", response.data.user_id);
-        localStorage.setItem("jwt", response.data.jwt); // Store JWT token in local storage
-        event.target.reset();
-        window.location.href = "/"; // redirect to homepage
+        const { jwt, user_id, username, avatar } = response.data;  // Destructure response
+        if (jwt && user_id && username && avatar) {  // Ensure all values are present
+          axios.defaults.headers.common["Authorization"] = "Bearer " + jwt;
+          localStorage.setItem("jwt", jwt);
+          localStorage.setItem("userId", user_id);  // Use user_id to match backend response
+          localStorage.setItem("user_username", username);
+          localStorage.setItem("user_avatar", avatar);
+          
+          event.target.reset();
+          window.location.href = "/";  // Redirect or hide modal
+        } else {
+          setErrors(["Invalid response from server"]);
+        }
       })
       .catch((error) => {
         console.log(error.response.data.errors);
