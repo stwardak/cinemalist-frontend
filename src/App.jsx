@@ -8,11 +8,9 @@ function App() {
   return (
     <div className= "bg-black">
     <BrowserRouter>
-        <div >
-      <Header />
+    <Header />
       <Content />
-      <Footer />
-    </div>
+    <Footer />
     </BrowserRouter>
     </div>
   )

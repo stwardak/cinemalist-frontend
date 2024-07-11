@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 import { Logout } from './Logout';
+import axios from 'axios';
 
 export function Header() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -8,6 +9,8 @@ export function Header() {
   const [userId, setUserId] = useState(null);
   const [userUsername, setUserUsername] = useState(null);
   const [userAvatar, setUserAvatar] = useState(null);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -22,6 +25,22 @@ export function Header() {
     setUserAvatar(storedUserAvatar);
   }, []);
 
+  const handleSearchChange = (event) => {
+    setSearchQuery(event.target.value);
+  };
+
+  const handleSearchSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      const response = await axios.get(`http://localhost:3000/search?q=${searchQuery}`);
+      setSearchResults(response.data);
+      navigate('/search-results', { state: { results: response.data } });
+    } catch (error) {
+      console.error("Search error:", error);
+    }
+  };
+
+
   return (
     <header className="p-4 bg-black text-grey-200 border-b-2 border-grey fixed w-full">
       <nav className="grid grid-cols-1 lg:grid-cols-12 gap-4 items-center">
@@ -33,7 +52,16 @@ export function Header() {
         <div className="lg:col-span-4 flex items-center justify-center lg:justify-end space-x-4">
           <a href="/about" className="hover:text-white">About</a>
           <a href="/" className="hover:text-white">Members</a>
-          <input type="text" placeholder="Search..." className="border p-1" />
+          <form onSubmit={handleSearchSubmit} className="flex items-center">
+            <input
+              type="text"
+              placeholder="Search..."
+              className="border p-1"
+              value={searchQuery}
+              onChange={handleSearchChange}
+            />
+            <button type="submit" className="ml-2 px-4 py-1 bg-blue-500 text-white rounded">Search</button>
+          </form>
         </div>
         {/* Right Section */}
         <div className="lg:col-span-5 flex items-center justify-center lg:justify-end space-x-4">
