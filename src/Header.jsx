@@ -51,7 +51,7 @@ export function Header() {
         {/* Middle Section */}
         <div className="lg:col-span-5 xl:col-span-4 flex items-center justify-center lg:justify-end space-x-4">
           <a href="/about" className="hover:text-white">About</a>
-          <a href="/" className="hover:text-white">Members</a>
+          <a href="/members" className="hover:text-white">Members</a>
           <form onSubmit={handleSearchSubmit} className="flex items-center">
             <input
               type="text"

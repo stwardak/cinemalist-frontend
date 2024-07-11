@@ -13,6 +13,8 @@ import { ProfileShow } from "./ProfileShow";
 import { WatchlistIndex } from "./WatchlistIndex";
 import { ReviewsShow } from "./ReviewsShow";
 import { SearchResults } from "./SearchResults";
+import { Members } from "./Members";  
+
 
 export function Content() {
   const [movies, setMovies] = useState([]);
@@ -34,6 +36,7 @@ export function Content() {
         <Route path="/login" element={<Login />} />
         <Route path="/logout" element={<Logout />} />
         <Route path="/" element={<MoviesIndex movies={movies} />} />
+        <Route path="/members" element={<Members />} />
         <Route path="/:user_username" element={<ProfileShow />} />
         <Route path="/movies/:id" element={<MoviesShow />} />
         <Route path="/users/:userId/favorites" element={<FavoritesIndex />} />
