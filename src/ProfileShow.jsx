@@ -31,7 +31,7 @@ export function ProfileShow() {
   if (!profile) return <div>Loading...</div>;
 
   return (
-    <div className="bg-black p-4">
+    <div className="bg-black">
       <div className="max-w-6xl mx-auto">
         <div className="grid-cols-12">
           {/* Profile header */}

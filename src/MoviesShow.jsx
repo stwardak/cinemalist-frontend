@@ -136,7 +136,7 @@ export function MoviesShow() {
   if (!movie) return <div>Loading...</div>;
 
   return (
-    <div className="container mx-auto px-4 sm:px-6 lg:px-40">
+    <div className="container mx-auto px-4 sm:px-6 lg:px-10 xl:px-40">
       <div className="grid grid-cols-1 md:grid-cols-12 gap-2">
 
         {/* left column */}
